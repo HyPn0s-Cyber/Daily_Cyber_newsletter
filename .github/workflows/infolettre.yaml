@@ -2,10 +2,14 @@ name: Envoi de l'infolettre quotidienne
 
 on:
   schedule:
-    # 9h00 Montréal en heure d'été (EDT) = 13h00 UTC
-    # heure d'hiver (EST), changez '0 13 * * *' par '0 14 * * *'
+    # 9h00 à Montréal en heure d'été (EDT) = 13h00 UTC
+    #heure d'hiver (EST), changer '0 13 * * *' par '0 14 * * *'
     - cron: '0 13 * * *' 
-  workflow_dispatch: # Permet lancement manuel
+  workflow_dispatch: 
+
+# option globale pour forcer Node.js 24 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   run-script:
@@ -29,4 +33,4 @@ jobs:
       env:
         EMAIL_USER: ${{ secrets.EMAIL_USER }}
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      run: python infolettre.py
+      run: python main.py

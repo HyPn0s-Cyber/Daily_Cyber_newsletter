@@ -4,7 +4,7 @@ on:
   schedule:
     # 9h00 à Montréal en heure d'été (EDT) = 13h00 UTC
     #heure d'hiver (EST), changer '0 13 * * *' par '0 14 * * *'
-    - cron: '0 13 * * *' 
+    - cron: '47 12 * * *' 
   workflow_dispatch: 
 
 # option globale pour forcer Node.js 24 
